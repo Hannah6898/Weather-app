@@ -1,0 +1,147 @@
+
+h1,
+h3 {
+  display: block;
+  text-align: center;
+}
+
+h1 {
+  padding-top: 10px;
+  font-size: 30px !important;
+}
+
+h2 {
+  display: inline-block;
+  font-size: 20px !important;
+}
+
+h2 i {
+  font-size: 18px;
+    display: inline-block;
+}
+
+.city-name {
+  text-align: center;
+}
+
+h3 {
+  font-size: 18px !important;
+}
+
+h4 {
+display: inline-block;
+  text-align: center;
+  font-size: 70px !important;
+  padding-left: 43px;
+}
+
+h5 {
+  font-size: 20px !important;
+}
+
+hr {
+  color: #1B115F!important;
+  height: 2px !important;
+  width: 80%;
+}
+
+a {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+.weather-app {
+  max-width: 400px;
+  margin: 100px auto;
+  font-family: 'Lexend Deca', sans-serif;
+  border-radius: 5px;
+  background-color: #634CFF;
+  box-shadow: 0 0 40px rgba(109, 103, 103, 0.637);
+}
+
+.search-bar {
+  width: 70% !important;
+  margin: 20px;
+  padding-top: 10px;
+  border: none;
+}
+
+.btn {
+  background-color: white !important;
+ color: #634CFF !important;
+}
+
+.btn:hover {
+  background: #634CFF !important;
+  color: white !important;
+}
+
+.weather-now {
+  color: white;
+}
+
+.weather-future {
+  background: white;
+  color: black;
+}
+
+.weather-now-icon {
+  display: block;
+  margin: 0 auto;
+  width: 100px;
+}
+
+.current-temps p {
+text-align: center;
+font-size: 25px;
+padding-left: 10px;
+}
+
+.degrees {
+text-align: center;
+font-size: 15px;
+padding-left: 10px;
+}
+
+.degrees-hover:hover {
+  text-decoration: underline;
+
+}
+
+.details p {
+  margin: 0;
+}
+
+.dates p {
+  display: block;
+  text-align: center;
+}
+
+.weather-icon {
+  width: 40px;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  bottom: 10px;
+}
+
+.future-temperatures p {
+   display: block;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
