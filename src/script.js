@@ -1,4 +1,5 @@
 
+
 function currentDate (date) {
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   let day = days[date.getDay()];
@@ -12,11 +13,12 @@ return (getDate.innerHTML = (`${day} ${todayDate} ${month}`));
 
 function currentHour (date) {
 let hour = date.getHours();
+let mintues = date.getMinutes();
 let nowHour = document.querySelector("#hour");
 if (hour <12) {
-return(nowHour.innerHTML = (`0${hour}:00`));
+return(nowHour.innerHTML = (`0${hour}:${mintues}`));
 } else {
-return(nowHour.innerHTML = (`${hour}:00`));
+return(nowHour.innerHTML = (`${hour}:${mintues}`));
 }
 }
 

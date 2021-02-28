@@ -67,6 +67,8 @@ hr {
 .btn {
   background-color: white !important;
  color: #634CFF !important;
+ border: none;
+ transition: all 2ms ease-in-out;
 }
 
 .current-btn {
@@ -80,6 +82,7 @@ hr {
 .btn:hover {
   background: #634CFF !important;
   color: white !important;
+  border: white !important;
 }
 
 .weather-now {
