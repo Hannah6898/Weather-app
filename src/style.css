@@ -47,6 +47,7 @@ hr {
 
 
 
+
 .weather-app {
   max-width: 400px;
   margin: 100px auto;
@@ -127,7 +128,7 @@ padding-left: 10px;
   text-align: center;
 }
 
-small {
+small{
   text-align: center;
 }
 
