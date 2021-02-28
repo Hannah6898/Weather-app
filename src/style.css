@@ -154,7 +154,8 @@ a:hover {
 
 .units {
 position: relative;
-left: 10px;
+left: 8px;
+top: 50px;
 }
 
 
@@ -168,7 +169,13 @@ left: 10px;
 }
 
 
+.weather-decription{
+  display: block;
+  text-align: center;
+  margin-bottom: 20px;
 
+  text-transform: capitalize;
+}
 
 
 
