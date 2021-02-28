@@ -31,7 +31,7 @@ h3 {
 h4 {
 display: inline-block;
   text-align: center;
-  font-size: 70px !important;
+  font-size: 62px !important;
   padding-left: 43px;
 }
 
@@ -143,14 +143,11 @@ small p{
 }
 
 p a {
-  color: black;
+  color: #634CFF;
   text-decoration: none;
   transition: all 2ms ease-in-out;
 }
 
-a:hover { 
-  color:#634CFF;
-}
 
 .units {
 position: relative;
@@ -180,7 +177,10 @@ top: 50px;
   font-size: 8px;
 }
 
-
+.max-temp {
+  position: relative;
+  right: 15px;
+}
 
 
 
