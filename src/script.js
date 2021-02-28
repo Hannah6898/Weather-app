@@ -58,6 +58,7 @@ document.querySelector("#humidity").innerHTML = (`${Math.round(response.data.mai
 document.querySelector("#wind-speed").innerHTML = (`${Math.round(response.data.wind.speed)} m/s`);
 document.querySelector("#description").innerHTML =response.data.weather[0].description;
 document.querySelector("#weather-icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+document.querySelector("#weather-icon").setAttribute("alt", response.data.weather[0].description);
 }
 
 
