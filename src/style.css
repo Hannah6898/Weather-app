@@ -128,7 +128,7 @@ padding-left: 10px;
   text-align: center;
 }
 
-small{
+small p{
   text-align: center;
 }
 
@@ -140,6 +140,11 @@ a {
 
 a:hover { 
   color:#634CFF;
+}
+
+.units {
+position: relative;
+left: 10px;
 }
 
 
