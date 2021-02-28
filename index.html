@@ -32,8 +32,12 @@
   <div class="weather-now">
       <div class="input-group mb-3 search-bar">
         <input id="city-text" type="text" class="form-control" placeholder="City">
+        <div class="search-btn">
           <button class="btn btn-outline-secondary" type="sumbit" id="Search-btn">Search</button>
+        </div>
+          <div class="current-btn">
           <button id="current-location" class="btn">Current</button>
+          </div>
       </div>
 
       <h1 id="date"></h1>
@@ -55,7 +59,8 @@
       </div>
       <div class="col-4">
         <small>
-        <div class="units">°C/°F</div>
+        <div class="units">°C/ 
+         <a class="fahrenheit-unit" href="#">°F</a></div>
         </small>
       </div> 
       </div>

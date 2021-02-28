@@ -58,7 +58,7 @@ hr {
 }
 
 .search-bar {
-  width: 70% !important;
+  width: 90%;
   margin: 20px;
   padding-top: 10px;
   border: none;
@@ -67,6 +67,14 @@ hr {
 .btn {
   background-color: white !important;
  color: #634CFF !important;
+}
+
+.current-btn {
+  margin-left: 10px !important;
+}
+
+.search-btn {
+  margin-left: 10px !important;
 }
 
 .btn:hover {
@@ -103,7 +111,6 @@ padding-left: 10px;
 
 .degrees-hover:hover {
   text-decoration: underline;
-
 }
 
 .details p {
@@ -132,7 +139,7 @@ small p{
   text-align: center;
 }
 
-a {
+p a {
   color: black;
   text-decoration: none;
   transition: all 2ms ease-in-out;
@@ -146,6 +153,17 @@ a:hover {
 position: relative;
 left: 10px;
 }
+
+
+.fahrenheit-unit {
+  color: white;
+  text-decoration: none;
+}
+
+.fahrenheit-unit:hover {
+  color: yellow;
+}
+
 
 
 
