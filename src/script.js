@@ -52,6 +52,11 @@ document.querySelector("#wind-speed").innerHTML = (`${Math.round(response.data.w
 document.querySelector("#description").innerHTML =response.data.weather[0].description;
 document.querySelector("#weather-icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 document.querySelector("#weather-icon").setAttribute("alt", response.data.weather[0].description);
+document.querySelector("#day1-icon").setAttribute("src", `http://openweathermap.org/img/wn/10d@2x.png`);
+document.querySelector("#day2-icon").setAttribute("src", `http://openweathermap.org/img/wn/01d@2x.png`);
+document.querySelector("#day3-icon").setAttribute("src", `http://openweathermap.org/img/wn/04d@2x.png`);
+document.querySelector("#day4-icon").setAttribute("src", `http://openweathermap.org/img/wn/11d@2x.png`);
+document.querySelector("#day5-icon").setAttribute("src", `http://openweathermap.org/img/wn/10d@2x.png`);
 }
 
 function showCurrentPosition (event) {
