@@ -10,14 +10,18 @@ return (getDate.innerHTML = (`${day} ${todayDate} ${month}`));
 
 function currentHour (date) {
 let hour = date.getHours();
-let mintues = date.getMinutes();
 let nowHour = document.querySelector("#hour");
-if (hour <12) {
-return(nowHour.innerHTML = (`0${hour}:${mintues}`));
-} else {
-return(nowHour.innerHTML = (`${hour}:${mintues}`));
+if (hour <10) {
+hour = `0${hour}`;
 }
+let mintues = date.getMinutes();
+if (mintues<10) {
+  mintues = `0${mintues}`;
 }
+return `${hour}:${mintues}`;
+}
+
+
 
 let formatDate = document.querySelector("#date");
 formatDate.innerHTML = currentDate(new Date());
