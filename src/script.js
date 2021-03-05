@@ -34,55 +34,56 @@ function displayForecast(response) {
   let forecast= response.data.list;
   forecastElement.innerHTML = `
    <div class="row dates">
-      <p>${formatHours(forecast.dt*1000)}</p>
+   <div class="col">
+      <p>${formatHours(forecast[0].dt*1000)}</p>
       </div>
       <div class="col">
-        <p>${formatHours(forecast.dt*1000)}</p>
+        <p>${formatHours(forecast[1].dt*1000)}</p>
       </div>
       <div class="col">
-        <p>${formatHours(forecast.dt*1000)}</p>
+        <p>${formatHours(forecast[2].dt*1000)}</p>
       </div>
       <div class="col">
-        <p>${formatHours(forecast.dt*1000)}</p>
+        <p>${formatHours(forecast[3].dt*1000)}</p>
       </div>
       <div class="col">
-        <p>${formatHours(forecast.dt*1000)}</p>
+        <p>${formatHours(forecast[4].dt*1000)}</p>
       </div>
     </div>
 
     <div class="row">
       <div class="col">
-        <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" class="weather-icon">
+        <img src="http://openweathermap.org/img/wn/${forecast[0].weather[0].icon}@2x.png" class="weather-icon">
       </div>
       <div class="col">
-        <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" class="weather-icon">
+        <img src="http://openweathermap.org/img/wn/${forecast[1].weather[0].icon}@2x.png" class="weather-icon">
       </div>
       <div class="col">
-        <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" class="weather-icon">
+        <img src="http://openweathermap.org/img/wn/${forecast[2].weather[0].icon}@2x.png" class="weather-icon">
       </div>
       <div class="col">
-        <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" class="weather-icon">
+        <img src="http://openweathermap.org/img/wn/${forecast[3].weather[0].icon}@2x.png" class="weather-icon">
       </div>
       <div class="col">
-        <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" class="weather-icon">
+        <img src="http://openweathermap.org/img/wn/${forecast[4].weather[0].icon}@2x.png" class="weather-icon">
       </div>
     </div>
 
     <div class="row future-temperatures">
       <div class="col">
-        <p>${Math.round(forecast.main.temp_max)}°|${Math.round(forecast.main.temp_min)}°</p>
+        <p>${Math.round(forecast[0].main.temp_max)}°| ${Math.round(forecast[0].main.temp_min)}°</p>
       </div>
       <div class="col">
-        <p>${Math.round(forecast.main.temp_max)}°|${Math.round(forecast.main.temp_min)}°</p>
+        <p>${Math.round(forecast[1].main.temp_max)}°| ${Math.round(forecast[1].main.temp_min)}°</p>
       </div>
       <div class="col">
-        <p>${Math.round(forecast.main.temp_max)}°|${Math.round(forecast.main.temp_min)}°</p>
+        <p>${Math.round(forecast[2].main.temp_max)}°| ${Math.round(forecast[2].main.temp_min)}°</p>
       </div>
       <div class="col">
-        <p>${Math.round(forecast.main.temp_max)}°|${Math.round(forecast.main.temp_min)}°</p>
+        <p>${Math.round(forecast[3].main.temp_max)}°| ${Math.round(forecast[3].main.temp_min)}°</p>
       </div>
       <div class="col">
-        <p>${Math.round(forecast.main.temp_max)}°|${Math.round(forecast.main.temp_min)}°</p>
+        <p>${Math.round(forecast[4].main.temp_max)}°| ${Math.round(forecast[4].main.temp_min)}°</p>
       </div>
     </div>`;
 }
