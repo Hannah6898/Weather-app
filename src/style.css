@@ -120,6 +120,10 @@ padding-left: 10px;
   text-align: center;
 }
 
+.future-temperatures p {
+  font-size: 15px;
+}
+
 .weather-icon {
   width: 40px;
   display: block;
