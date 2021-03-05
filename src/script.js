@@ -1,4 +1,5 @@
-function currentDate (date) {
+function formatCurrentDate (timestamp) {
+  let date = new Date(timestamp);
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   let day = days[date.getDay()];
   let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -8,10 +9,11 @@ let getDate = document.querySelector("#date");
 return (getDate.innerHTML = (`${day} ${todayDate} ${month}`));
 }
 
-function currentHour (date) {
+function formatHours (timestamp) {
+ let date = new Date (timestamp); 
 let hour = date.getHours();
 let nowHour = document.querySelector("#hour");
-if (hour <10) {
+if (nowHour <10) {
 hour = `0${hour}`;
 }
 let mintues = date.getMinutes();
@@ -21,19 +23,84 @@ if (mintues<10) {
 return `${hour}:${mintues}`;
 }
 
-
-
 let formatDate = document.querySelector("#date");
-formatDate.innerHTML = currentDate(new Date());
+formatDate.innerHTML = formatCurrentDate(new Date());
 
 let formatHour = document.querySelector("#hour");
-formatHour.innerHTML = currentHour(new Date());
+formatHour.innerHTML = formatHours(new Date());
+
+function displayForecast(response) {
+  let forecastElement = document.querySelector ("#forecast");
+  let forecast= response.data.list;
+  forecastElement.innerHTML = `
+   <div class="row dates">
+      <p>${formatHours(forecast.dt*1000)}</p>
+      </div>
+      <div class="col">
+        <p>${formatHours(forecast.dt*1000)}</p>
+      </div>
+      <div class="col">
+        <p>${formatHours(forecast.dt*1000)}</p>
+      </div>
+      <div class="col">
+        <p>${formatHours(forecast.dt*1000)}</p>
+      </div>
+      <div class="col">
+        <p>${formatHours(forecast.dt*1000)}</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" class="weather-icon">
+      </div>
+      <div class="col">
+        <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" class="weather-icon">
+      </div>
+      <div class="col">
+        <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" class="weather-icon">
+      </div>
+      <div class="col">
+        <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" class="weather-icon">
+      </div>
+      <div class="col">
+        <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" class="weather-icon">
+      </div>
+    </div>
+
+    <div class="row future-temperatures">
+      <div class="col">
+        <p>${Math.round(forecast.main.temp_max)}°|${Math.round(forecast.main.temp_min)}°</p>
+      </div>
+      <div class="col">
+        <p>${Math.round(forecast.main.temp_max)}°|${Math.round(forecast.main.temp_min)}°</p>
+      </div>
+      <div class="col">
+        <p>${Math.round(forecast.main.temp_max)}°|${Math.round(forecast.main.temp_min)}°</p>
+      </div>
+      <div class="col">
+        <p>${Math.round(forecast.main.temp_max)}°|${Math.round(forecast.main.temp_min)}°</p>
+      </div>
+      <div class="col">
+        <p>${Math.round(forecast.main.temp_max)}°|${Math.round(forecast.main.temp_min)}°</p>
+      </div>
+    </div>`;
+}
+
+
 
 function searchCity(city) {
-let apiKey = "9949a4027ac8b116bb6aff55d501ba46";
+let apiKey = "b79b0225475a81e40d7c313bd2945286";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(showWeather);
+
+apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+axios.get(apiUrl).then(displayForecast);
+
 }
+
+
+
 
 function submitCity (event) {
 event.preventDefault();
@@ -46,6 +113,7 @@ searchNewCity.addEventListener("submit", submitCity);
 
 
 function showWeather (response) {
+document.querySelector("#date").innerHTML = formatCurrentDate(response.data.dt*1000);  
 document.querySelector("#city").innerHTML = response.data.name; 
 document.querySelector("#now-temperature").innerHTML = (`${Math.round(response.data.main.temp)}°C`);
 document.querySelector("#min-temp").innerHTML = (`${Math.round(response.data.main.temp_min)}°C`);
@@ -56,11 +124,6 @@ document.querySelector("#wind-speed").innerHTML = (`${Math.round(response.data.w
 document.querySelector("#description").innerHTML =response.data.weather[0].description;
 document.querySelector("#weather-icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 document.querySelector("#weather-icon").setAttribute("alt", response.data.weather[0].description);
-document.querySelector("#day1-icon").setAttribute("src", `http://openweathermap.org/img/wn/10d@2x.png`);
-document.querySelector("#day2-icon").setAttribute("src", `http://openweathermap.org/img/wn/01d@2x.png`);
-document.querySelector("#day3-icon").setAttribute("src", `http://openweathermap.org/img/wn/04d@2x.png`);
-document.querySelector("#day4-icon").setAttribute("src", `http://openweathermap.org/img/wn/11d@2x.png`);
-document.querySelector("#day5-icon").setAttribute("src", `http://openweathermap.org/img/wn/10d@2x.png`);
 }
 
 function showCurrentPosition (event) {
