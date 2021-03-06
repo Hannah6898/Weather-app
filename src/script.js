@@ -138,6 +138,9 @@ let long = position.coords.longitude;
 let apiKey = "9949a4027ac8b116bb6aff55d501ba46";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(showWeather);
+
+apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`;
+axios.get(apiUrl).then(displayForecast);
 }
 
 let currentButton = document.querySelector("#current-location");
