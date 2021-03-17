@@ -1,131 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather App</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script
+      src="https://kit.fontawesome.com/c9cf10949e.js"
+      crossorigin="anonymous"
+    ></script>
 
-<script src="https://kit.fontawesome.com/c9cf10949e.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap"
+      rel="stylesheet"
+    />
 
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
 
-<link rel="stylesheet" href="src/style.css">
+  <body>
+    <div class="container">
+      <div class="weather-app">
+        <form id="search-form" autocomplete="off">
+          <div class="weather-now">
+            <div class="input-group mb-3 search-bar">
+              <input
+                id="city-text"
+                type="text"
+                class="form-control"
+                placeholder="City"
+              />
+              <div class="search-btn">
+                <button
+                  class="btn btn-outline-secondary"
+                  type="sumbit"
+                  id="Search-btn"
+                >
+                  Search
+                </button>
+              </div>
+              <div class="current-btn">
+                <button id="current-location" class="btn current-location">
+                  Current <br />
+                  Location
+                </button>
+              </div>
+            </div>
 
-</head>
+            <h1 id="date"></h1>
+            <div class="city-name">
+              <i class="fas fa-map-marker-alt"></i>
+              <h2 id="city"></h2>
+            </div>
+            <h3 id="hour"></h3>
+            <img src="" class="weather-now-icon" alt="" id="weather-icon" />
 
-<body>
+            <span id="description" class="weather-decription">Cloudy</span>
 
-<div class="container">
+            <div class="row">
+              <div class="col">
+                <div class="row">
+                  <div class="col">
+                    <h4 id="now-temperature"></h4>
+                  </div>
+                </div>
 
+                <div class="row">
+                  <div class="col-4 current-temps">
+                    <p id="min-temp"></p>
+                  </div>
+                  <div class="col-4 current-temps">
+                    <p>|</p>
+                  </div>
+                  <div class="col-4 current-temps">
+                    <p id="max-temp" class="max-temp"></p>
+                  </div>
+                </div>
+              </div>
 
-<div class="weather-app">
+              <div class="col">
+                <h5>Details</h5>
+                <hr />
+                <div class="row details">
+                  <div class="col-6">
+                    <p>Feels Like</p>
+                  </div>
+                  <div class="col-6">
+                    <p id="feels-like"></p>
+                  </div>
+                  <div class="col-6">
+                    <p>Humidty</p>
+                  </div>
+                  <div class="col-6">
+                    <p id="humidity"></p>
+                  </div>
+                  <div class="col-6">
+                    <p>Wind</p>
+                  </div>
+                  <div class="col-6">
+                    <p id="wind-speed"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-  <form id="search-form" autocomplete="off">
-
-  <div class="weather-now">
-      <div class="input-group mb-3 search-bar">
-        <input id="city-text" type="text" class="form-control" placeholder="City">
-        <div class="search-btn">
-          <button class="btn btn-outline-secondary" type="sumbit" id="Search-btn">Search</button>
-        </div>
-          <div class="current-btn">
-          <button id="current-location" class="btn current-location">Current <br/> Location</button>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+              <path
+                fill="#fff"
+                fill-opacity="1"
+                d="M0,128L60,112C120,96,240,64,360,85.3C480,107,600,181,720,186.7C840,192,960,128,1080,106.7C1200,85,1320,107,1380,117.3L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
+              ></path>
+            </svg>
           </div>
-      </div>
 
-      <h1 id="date"></h1>
-      <div class="city-name">
-      <i class="fas fa-map-marker-alt"></i>
-      <h2 id="city"></h2>
+          <div class="weather-future" id="forecast"></div>
+        </form>
       </div>
-      <h3 id="hour"></h3>
-      <img src="" class="weather-now-icon" alt="" id="weather-icon">
-
-     <span id="description" class="weather-decription">Cloudy</span>
-
-      <div class="row">
-      <div class="col">
-        
-      <div class="row">
-      <div class="col">
-          <h4 id="now-temperature"></h4>
-      </div>
-      </div>
-
-        <div class="row">
-        <div class="col-4 current-temps">
-          <p id="min-temp"></p>
-        </div>
-        <div class="col-4 current-temps">
-          <p>|</p>
-        </div>
-        <div class="col-4 current-temps">
-          <p id="max-temp" class="max-temp"></p>
-      </div>
-      </div>
-      </div>
-      
-      <div class="col">
-        <h5>Details</h5>
-        <hr>
-      <div class="row details">
-        <div class="col-6">
-          <p>Feels Like</p>
-        </div>
-        <div class="col-6">
-          <p id="feels-like"></p>
-        </div>
-        <div class="col-6">
-          <p>Humidty</p>
-        </div>
-        <div class="col-6">
-          <p id="humidity"></p>
-        </div>
-        <div class="col-6">
-          <p>Wind</p>
-        </div>
-        <div class="col-6">
-          <p id="wind-speed"></p>
-        </div>
-        </div>
     </div>
-  </div>
 
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-  <path fill="#fff" fill-opacity="1"
-  d="M0,128L60,112C120,96,240,64,360,85.3C480,107,600,181,720,186.7C840,192,960,128,1080,106.7C1200,85,1320,107,1380,117.3L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
-  </path>
-  </svg>
+    <small>
+      <p>
+        <a href="https://github.com/Hannah6898/Weather-app" target="_blank"
+          >Open Souce code</a
+        >
+        by Hannah Osibodu
+      </p>
+    </small>
 
-</div>
-
-
-  <div class="weather-future" id="forecast">
-
-   
-  </div>
-
-</form>
-</div>
-</div>
-
-<small>
-<p>
-  <a href="https://github.com/Hannah6898/Weather-app" target="_blank">Open Souce code</a> by Hannah Osibodu 
-</p>
-</small>
-
-
-
-
-<script src="src/script.js"></script>
-</body>
-
+    <script src="src/script.js"></script>
+  </body>
 </html>
